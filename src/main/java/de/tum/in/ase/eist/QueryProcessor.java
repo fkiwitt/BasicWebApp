@@ -17,14 +17,18 @@ public class QueryProcessor {
         } else if (query.contains("name")) {
            return "Fynn";
         } else if (query.contains("plus")) {
-            String[] numbers = query.split("(what is )|( plus)");
+            String[] numbers = query.split("(what is )|( plus )");
             if(numbers.length > 1) {
                 return "" + (Integer.parseInt(numbers[0]) + Integer.parseInt(numbers[1]));
             } else return "";
         } else if (query.contains("largest")) {
-            String[] numbers = query.split(":|,");
+            String[] numbers = query.split("(: )|(, )");
+            int largest = Integer.MIN_VALUE;
+            for(int i = 0; i < numbers.length; i++){
+                largest = (Math.max(Integer.parseInt(numbers[i]), largest));
+            }
             if(numbers.length > 2){
-                return "" + (Math.max(Integer.parseInt(numbers[1]), Integer.parseInt(numbers[2])));
+                return "" + largest;
             } else {
                 return "";
             }
