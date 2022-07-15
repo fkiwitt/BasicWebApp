@@ -52,7 +52,20 @@ public class QueryProcessor {
             } else {
                 return "";
             }
-        }else { // TODO extend the programm here
+        } else if (query.contains("primes")) {
+            String[] numbers = query.split("(: )|(, )");
+            int largest = Integer.MIN_VALUE;
+            for(int i = 0; i < numbers.length; i++){
+                if(Math.sqrt(Integer.parseInt(numbers[i])) % 1 == 0 && Math.pow(Integer.parseInt(numbers[i]), 1/3.0)  % 1 == 0) return "" + Integer.parseInt(numbers[i]);
+            }
+            if(numbers.length > 2){
+                return "" + largest;
+            } else {
+                return "";
+            }
+        } else if (query.contains("Eiffel")) {
+            return "Paris";
+        } else { // TODO extend the programm here
             return "";
         }
         } catch (Exception e) {
