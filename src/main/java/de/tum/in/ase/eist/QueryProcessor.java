@@ -29,10 +29,10 @@ public class QueryProcessor {
                 return "";
             }
         } else if (query.contains("multiplied")) {
-            String[] numbers = query.split("(is )|( multiplied )");
+            String[] numbers = query.split("(is )|( multiplied by )");
             if (numbers.length > 2) {
 
-                return "" + (Math.max(Integer.parseInt(numbers[1]), Integer.parseInt(numbers[2])));
+                return "" + (Integer.parseInt(numbers[1]) * Integer.parseInt(numbers[2]));
 
             } else {
                 return "";
