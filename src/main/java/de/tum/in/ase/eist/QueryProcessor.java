@@ -15,8 +15,7 @@ public class QueryProcessor {
                     "writer in the English language and the world's pre-eminent dramatist.";
         } else if (query.contains("name")) {
            return "Fynn";
-        } else if (query.contains("largest")) {
-//            return query.split;
+        } else if (query.contains("plus")) {
             String[] numbers = query.split("(what is )|( plus)");
             return "" + (Integer.parseInt(numbers[0]) + Integer.parseInt(numbers[1]));
         } else { // TODO extend the programm here
