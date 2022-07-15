@@ -56,7 +56,11 @@ public class QueryProcessor {
             String[] numbers = query.split("(: )|(, )");
             int largest = Integer.MIN_VALUE;
             for(int i = 0; i < numbers.length; i++){
-                if(Math.sqrt(Integer.parseInt(numbers[i])) % 1 == 0 && Math.pow(Integer.parseInt(numbers[i]), 1/3.0)  % 1 == 0) return "" + Integer.parseInt(numbers[i]);
+                int n = Integer.parseInt(numbers[i]);
+                for(int j = 1; i < Math.sqrt(n);j++) {
+                    if(n/((double) j) % 1 == 0) break;
+                }
+                return "" + n;
             }
             if(numbers.length > 2){
                 return "" + largest;
