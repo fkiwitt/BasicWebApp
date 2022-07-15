@@ -18,6 +18,9 @@ public class QueryProcessor {
         } else if (query.contains("plus")) {
             String[] numbers = query.split("(what is )|( plus)");
             return "" + (Integer.parseInt(numbers[0]) + Integer.parseInt(numbers[1]));
+        } else if (query.contains("largest")) {
+            String[] numbers = query.split("(:)|(,)");
+            return "" + (Math.max(Integer.parseInt(numbers[1]), Integer.parseInt(numbers[2])));
         } else { // TODO extend the programm here
             return "";
         }
