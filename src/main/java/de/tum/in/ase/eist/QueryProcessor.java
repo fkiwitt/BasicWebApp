@@ -17,10 +17,16 @@ public class QueryProcessor {
            return "Fynn";
         } else if (query.contains("plus")) {
             String[] numbers = query.split("(what is )|( plus)");
-            return "" + (Integer.parseInt(numbers[0]) + Integer.parseInt(numbers[1]));
+            if(numbers.length > 1) {
+                return "" + (Integer.parseInt(numbers[0]) + Integer.parseInt(numbers[1]));
+            } else return "";
         } else if (query.contains("largest")) {
-            String[] numbers = query.split("(:)|(,)");
-            return "" + (Math.max(Integer.parseInt(numbers[1]), Integer.parseInt(numbers[2])));
+            String[] numbers = query.split(":|,");
+            if(numbers.length > 2){
+                return "" + (Math.max(Integer.parseInt(numbers[1]), Integer.parseInt(numbers[2])));
+            } else {
+                return "";
+            }
         } else { // TODO extend the programm here
             return "";
         }
