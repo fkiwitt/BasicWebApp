@@ -8,6 +8,7 @@ import java.util.List;
 public class QueryProcessor {
 
     public String process(String query) {
+        try {
 		query = query.toLowerCase();
         if (query.contains("shakespeare")) {
             return "William Shakespeare (26 April 1564 - 23 April 1616) was an " +
@@ -27,7 +28,19 @@ public class QueryProcessor {
             } else {
                 return "";
             }
+        } else if (query.contains("multiplied")) {
+            String[] numbers = query.split("(is )|( multiplied )");
+            if (numbers.length > 2) {
+
+                return "" + (Math.max(Integer.parseInt(numbers[1]), Integer.parseInt(numbers[2])));
+
+            } else {
+                return "";
+            }
         } else { // TODO extend the programm here
+            return "";
+        }
+        } catch (Exception e) {
             return "";
         }
     }
